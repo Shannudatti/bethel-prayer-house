@@ -1,7 +1,6 @@
-@import "tailwindcss";
-
-/* GOOGLE TELUGU FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Ramabhadra&family=Mandali&family=Noto+Serif+Telugu:wght@400;700&display=swap');
+
+@import "tailwindcss";
 
 /* CUSTOM TELUGU FONTS */
 
