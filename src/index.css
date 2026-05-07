@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* GOOGLE TELUGU FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Ramabhadra&family=Mandali&family=Noto+Serif+Telugu:wght@400;700&display=swap');
+
+/* CUSTOM TELUGU FONTS */
+
+@font-face {
+  font-family: "Brahma";
+  src: url("./assets/fonts/Brahma.ttf");
+}
+
+@font-face {
+  font-family: "Dharani";
+  src: url("./assets/fonts/Dharani.ttf");
+}
+
+@font-face {
+  font-family: "Pridhvi";
+  src: url("./assets/fonts/Pridhvi.ttf");
+}
+
+/* GLOBAL */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: black;
+  color: white;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+/* TELUGU TITLE */
+
+.telugu-title {
+  font-family: "Brahma", "Ramabhadra", sans-serif;
+  letter-spacing: 1px;
+}
+
+/* TELUGU BODY */
+
+.telugu-body {
+  font-family: "Dharani", "Mandali", sans-serif;
+  line-height: 1.9;
+}
+
+/* BIBLE VERSE */
+
+.telugu-verse {
+  font-family: "Noto Serif Telugu", serif;
+  line-height: 1.8;
+}
+
+/* SPECIAL */
+
+.telugu-special {
+  font-family: "Pridhvi", "Ramabhadra", sans-serif;
+}
