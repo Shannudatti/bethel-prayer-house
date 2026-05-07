@@ -4,7 +4,7 @@ import { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 import churchImage from "../assets/images/church.jpeg";
 import gurumurthyImage from "../assets/images/gurumurthy.jpg";
-import davidRajuImage from "../assets/images/davidRaju.jpeg";
+import davidRajuImage from "../assets/images/davidraju.jpeg";
 import pastor3Image from "../assets/images/pastor3.png";
 import pastor4Image from "../assets/images/pastor4.jpeg";
 import bethellogo from "../assets/images/bethellogo.png";
