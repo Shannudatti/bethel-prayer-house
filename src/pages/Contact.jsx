@@ -30,7 +30,7 @@ function Contact() {
             </p>
 
             <p>
-              ✉️ bethelprayerhouse@gmail.com
+              ✉️ jeremiahdavid.lanka@gmail.com
             </p>
 
           </div>

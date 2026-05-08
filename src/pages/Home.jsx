@@ -68,6 +68,19 @@ function Home() {
         alert("Something went wrong");
       });
   };
+  const handleWhatsApp = () => {
+    const message = `🙏 Prayer Request
+
+Name: ${formData.name}
+Phone: ${formData.phone}
+
+Prayer Request:
+${formData.prayer}`;
+
+    const whatsappURL = `https://wa.me/919440389247?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+  };
   return (
     <MainLayout>
       <Navbar />
@@ -90,22 +103,22 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black"></div>
 
         {/* TOP LEFT LOGO */}
-        <div className="absolute top-10 left-6 md:left-10 z-20 inline-flex flex-col items-center">
+        <div className="absolute top-24 left-3 md:top-20 md:left-10 z-20">
           <img
             src={bethellogo}
             alt="Bethel Prayer House Logo"
-            className="w-20 md:w-28 object-contain drop-shadow-[0_0_20px_rgba(255,215,0,0.7)]"
+            className="w-12 sm:w-14 md:w-24 object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.6)]"
           />
 
-          {/* <p className="text-yellow-400 text-xs md:text-sm tracking-[3px] mt-1 uppercase">
-    ESTD • 1972
-  </p> */}
+          <p className="text-[8px] sm:text-[10px] md:text-sm text-gray-300 tracking-[2px] mt-1 text-center">
+            ESTD • 1972
+          </p>
         </div>
 
         {/* CONTENT */}
         <div className="relative z-10 text-center px-6 max-w-5xl">
           {/* SMALL TEXT */}
-          <div className="space-y-3 mb-6">
+          <div className="space-y-3 mb-6 mt-16 md:mt-0">
             <p className="uppercase tracking-[8px] text-yellow-400 text-sm md:text-base">
               Welcome To The Presence Of God
             </p>
@@ -224,7 +237,7 @@ function Home() {
                   Founder
                 </p>
 
-                <h3 className=" text-yellow-400 text-3xl font-bold text-white leading-tight mb-5 min-h-[90px]">
+                <h3 className="text-yellow-400 text-3xl font-bold leading-tight mb-5 min-h-[110px]">
                   Bro. L.V. Gurumurthy Garu
                 </h3>
 
@@ -245,7 +258,7 @@ function Home() {
               />
 
               <div className="p-7 flex flex-col flex-1">
-                <h3 className=" text-yellow-400 text-3xl font-bold text-white leading-tight mb-5 min-h-[90px]">
+                <h3 className="text-yellow-400 text-3xl font-bold leading-tight mb-5 min-h-[110px]">
                   Bro. L.V. David Raju Garu
                 </h3>
 
@@ -257,14 +270,16 @@ function Home() {
             </div>
             {/* PASTOR 3 */}
             <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10 hover:scale-[1.02] transition duration-500 flex flex-col">
-              <img
-                src={pastor3Image}
-                alt="Pastor"
-                className="w-full h-[420px] object-cover"
-              />
+              <div className="bg-black h-[420px] flex justify-center items-center p-4">
+                <img
+                  src={pastor3Image}
+                  alt="Pastor"
+                  className="w-full h-full object-contain rounded-2xl"
+                />
+              </div>
 
               <div className="p-7 flex flex-col flex-1">
-                <h3 className=" text-yellow-400 text-3xl font-bold text-white leading-tight mb-5 min-h-[90px]">
+                <h3 className="text-yellow-400 text-3xl font-bold leading-tight mb-5 min-h-[110px]">
                   Bro. Samuel Lanka
                 </h3>
 
@@ -283,7 +298,7 @@ function Home() {
               />
 
               <div className="p-7 flex flex-col flex-1">
-                <h3 className=" text-yellow-400 text-3xl font-bold text-white leading-tight mb-5 min-h-[90px]">
+                <h3 className="text-yellow-400 text-3xl font-bold leading-tight mb-5 min-h-[110px]">
                   Bro. Anna Samuel Lanka
                 </h3>
 
@@ -457,58 +472,70 @@ function Home() {
         </div>
       </section>
       {/* SERMONS */}
-      <section id="sermons" className="py-24 px-6 bg-black">
+      <section
+        id="sermons"
+        className="py-20 md:py-24 px-4 sm:px-6 bg-black overflow-hidden"
+      >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-yellow-400 mb-14">
+          {/* TITLE */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-yellow-400 mb-12 md:mb-14">
             Latest Sermons
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#111827] rounded-3xl overflow-hidden">
+          {/* SERMON GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* CARD 1 */}
+            <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10 hover:scale-[1.02] transition duration-500">
               <img
                 src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2070&auto=format&fit=crop"
-                alt=""
-                className="h-60 w-full object-cover"
+                alt="Sunday Worship"
+                className="h-56 sm:h-64 w-full object-cover"
               />
 
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3">
+              <div className="p-5 sm:p-6">
+                <h3 className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-3 leading-tight">
                   Sunday Worship Message
                 </h3>
 
-                <p className="text-gray-400">
+                <p className="text-gray-300 text-base sm:text-lg leading-7">
                   Experience God’s presence through powerful worship.
                 </p>
               </div>
             </div>
 
-            <div className="bg-[#111827] rounded-3xl overflow-hidden">
+            {/* CARD 2 */}
+            <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10 hover:scale-[1.02] transition duration-500">
               <img
                 src="https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=1974&auto=format&fit=crop"
-                alt=""
-                className="h-60 w-full object-cover"
+                alt="Prayer and Faith"
+                className="h-56 sm:h-64 w-full object-cover"
               />
 
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3">Prayer & Faith</h3>
+              <div className="p-5 sm:p-6">
+                <h3 className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-3 leading-tight">
+                  Prayer & Faith
+                </h3>
 
-                <p className="text-gray-400">
+                <p className="text-gray-300 text-base sm:text-lg leading-7">
                   Grow deeper in faith and trust in God.
                 </p>
               </div>
             </div>
 
-            <div className="bg-[#111827] rounded-3xl overflow-hidden">
+            {/* CARD 3 */}
+            <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10 hover:scale-[1.02] transition duration-500">
               <img
                 src="https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=1974&auto=format&fit=crop"
-                alt=""
-                className="h-60 w-full object-cover"
+                alt="Hope in Christ"
+                className="h-56 sm:h-64 w-full object-cover"
               />
 
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3">Hope in Christ</h3>
+              <div className="p-5 sm:p-6">
+                <h3 className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-3 leading-tight">
+                  Hope in Christ
+                </h3>
 
-                <p className="text-gray-400">
+                <p className="text-gray-300 text-base sm:text-lg leading-7">
                   Discover God’s promises and purpose for your life.
                 </p>
               </div>
@@ -517,19 +544,22 @@ function Home() {
         </div>
       </section>
       {/* LIVE STREAM */}
-      <section className="py-24 px-6 bg-black">
+      <section className="py-20 md:py-24 px-4 sm:px-6 bg-black overflow-hidden">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-yellow-400 mb-6">
+          {/* TITLE */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-5">
             Watch Live Service
           </h2>
 
-          <p className="text-gray-300 text-lg mb-10">
+          {/* SUBTEXT */}
+          <p className="text-gray-300 text-base sm:text-lg md:text-xl mb-8 md:mb-10 leading-8 max-w-3xl mx-auto">
             Join our Sunday and Wednesday worship services live online.
           </p>
 
+          {/* LIVE STREAM */}
           <div className="rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/20">
             <iframe
-              className="w-full h-[500px]"
+              className="w-full h-[240px] sm:h-[350px] md:h-[500px]"
               src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID&autoplay=0"
               title="YouTube Live Stream"
               allowFullScreen
@@ -538,19 +568,22 @@ function Home() {
         </div>
       </section>
       {/* LATEST SERMONS */}
-      <section className="py-24 px-6 bg-[#0f172a]">
+      <section className="py-20 md:py-24 px-4 sm:px-6 bg-[#0f172a] overflow-hidden">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-yellow-400 mb-6">
+          {/* TITLE */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-5">
             Latest Sermons
           </h2>
 
-          <p className="text-gray-300 text-lg mb-10">
+          {/* SUBTEXT */}
+          <p className="text-gray-300 text-base sm:text-lg md:text-xl mb-8 md:mb-10 leading-8 max-w-3xl mx-auto">
             Watch recent messages, worship services, and spiritual teachings.
           </p>
 
+          {/* YOUTUBE SECTION */}
           <div className="rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/20">
             <iframe
-              className="w-full h-[500px]"
+              className="w-full h-[240px] sm:h-[350px] md:h-[500px]"
               src="https://www.youtube.com/embed/videoseries?list=PLmztcIrVLM-AjWP0S2R58mC0O5VtpqUvy"
               title="YouTube Sermons Playlist"
               allowFullScreen
@@ -629,7 +662,15 @@ function Home() {
               type="submit"
               className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 rounded-2xl text-xl transition duration-500"
             >
-              Submit Prayer Request 🙏
+              Submit Prayer Request 🙏(via Gmail)
+            </button>
+            <button
+              type="button"
+              onClick={handleWhatsApp}
+              className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl transition duration-500 flex items-center justify-center gap-3"
+            >
+              <FaWhatsapp className="text-2xl" />
+              Send via WhatsApp
             </button>
           </form>
         </div>
@@ -646,7 +687,7 @@ function Home() {
 
             <p>📞 +91 94403 89247</p>
 
-            <p>✉️ bethelprayerhouse@gmail.com</p>
+            <p>✉️ jeremiahdavid.lanka@gmail.com</p>
           </div>
 
           <div className="mt-10 rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/20">
