@@ -19,9 +19,13 @@ import emailjs from "@emailjs/browser";
 import {
   FaYoutube,
   FaWhatsapp,
-  FaFacebookF,
   FaInstagram,
 } from "react-icons/fa";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 function Home() {
   const [formData, setFormData] = useState({
@@ -472,77 +476,118 @@ ${formData.prayer}`;
         </div>
       </section>
       {/* SERMONS */}
-      <section
-        id="sermons"
-        className="py-20 md:py-24 px-4 sm:px-6 bg-black overflow-hidden"
-      >
-        <div className="max-w-6xl mx-auto">
-          {/* TITLE */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-yellow-400 mb-12 md:mb-14">
-            Latest Sermons
-          </h2>
+      
+<section
+  id="sermons"
+  className="py-20 md:py-24 px-4 sm:px-6 bg-black overflow-hidden"
+>
 
-          {/* SERMON GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* CARD 1 */}
-            <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10 hover:scale-[1.02] transition duration-500">
-              <img
-                src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2070&auto=format&fit=crop"
-                alt="Sunday Worship"
-                className="h-56 sm:h-64 w-full object-cover"
-              />
+  <div className="max-w-7xl mx-auto">
 
-              <div className="p-5 sm:p-6">
-                <h3 className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-3 leading-tight">
-                  Sunday Worship Message
-                </h3>
+    {/* TITLE */}
+    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-yellow-400 mb-14">
+      Sermons and songs 
+    </h2>
 
-                <p className="text-gray-300 text-base sm:text-lg leading-7">
-                  Experience God’s presence through powerful worship.
-                </p>
-              </div>
-            </div>
+    {/* SLIDER */}
+    <Swiper
+      modules={[Navigation, Autoplay]}
+      navigation
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+      }}
+      spaceBetween={30}
+      slidesPerView={1}
+      breakpoints={{
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      }}
+      className="sermonSwiper"
+    >
 
-            {/* CARD 2 */}
-            <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10 hover:scale-[1.02] transition duration-500">
-              <img
-                src="https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=1974&auto=format&fit=crop"
-                alt="Prayer and Faith"
-                className="h-56 sm:h-64 w-full object-cover"
-              />
+      {/* VIDEO 1 */}
+      <SwiperSlide>
+        <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10">
 
-              <div className="p-5 sm:p-6">
-                <h3 className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-3 leading-tight">
-                  Prayer & Faith
-                </h3>
+          <iframe
+            className="w-full h-[250px]"
+            src="https://www.youtube.com/embed/v-bftf7tyzg"
+            title="Sermon 1"
+            allowFullScreen
+          ></iframe>
 
-                <p className="text-gray-300 text-base sm:text-lg leading-7">
-                  Grow deeper in faith and trust in God.
-                </p>
-              </div>
-            </div>
+          {/* <div className="p-5">
+            <h3 className="text-2xl font-bold text-yellow-400 mb-3">
+              Sunday Worship
+            </h3>
 
-            {/* CARD 3 */}
-            <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10 hover:scale-[1.02] transition duration-500">
-              <img
-                src="https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=1974&auto=format&fit=crop"
-                alt="Hope in Christ"
-                className="h-56 sm:h-64 w-full object-cover"
-              />
+            <p className="text-gray-300 leading-7">
+              Experience powerful worship and God’s Word.
+            </p>
+          </div> */}
 
-              <div className="p-5 sm:p-6">
-                <h3 className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-3 leading-tight">
-                  Hope in Christ
-                </h3>
-
-                <p className="text-gray-300 text-base sm:text-lg leading-7">
-                  Discover God’s promises and purpose for your life.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+      </SwiperSlide>
+
+      {/* VIDEO 2 */}
+      <SwiperSlide>
+        <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10">
+
+          <iframe
+            className="w-full h-[250px]"
+            src="https://www.youtube.com/embed/wWajzOkBbik"
+            title="Sermon 2"
+            allowFullScreen
+          ></iframe>
+
+          {/* <div className="p-5">
+            <h3 className="text-2xl font-bold text-yellow-400 mb-3">
+              Prayer & Faith
+            </h3>
+
+            <p className="text-gray-300 leading-7">
+              Grow spiritually through prayer and faith.
+            </p>
+          </div> */}
+
+        </div>
+      </SwiperSlide>
+
+      {/* VIDEO 3 */}
+      <SwiperSlide>
+        <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10">
+
+          <iframe
+            className="w-full h-[250px]"
+            src="https://www.youtube.com/embed/5MMBZlcGM3s"
+            title="Sermon 3"
+            allowFullScreen
+          ></iframe>
+
+          {/* <div className="p-5">
+            <h3 className="text-2xl font-bold text-yellow-400 mb-3">
+              Hope In Christ
+            </h3>
+
+            <p className="text-gray-300 leading-7">
+              Discover God’s promises and purpose for life.
+            </p>
+          </div> */}
+
+        </div>
+        
+      </SwiperSlide>
+
+    </Swiper>
+
+  </div>
+
+</section>
       {/* LIVE STREAM */}
       <section className="py-20 md:py-24 px-4 sm:px-6 bg-black overflow-hidden">
         <div className="max-w-6xl mx-auto text-center">
@@ -567,30 +612,71 @@ ${formData.prayer}`;
           </div>
         </div>
       </section>
-      {/* LATEST SERMONS */}
-      <section className="py-20 md:py-24 px-4 sm:px-6 bg-[#0f172a] overflow-hidden">
-        <div className="max-w-6xl mx-auto text-center">
-          {/* TITLE */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-5">
-            Latest Sermons
-          </h2>
+    {/* LATEST SERMONS */}
+<section className="py-20 md:py-24 px-4 sm:px-6 bg-[#0f172a] overflow-hidden">
 
-          {/* SUBTEXT */}
-          <p className="text-gray-300 text-base sm:text-lg md:text-xl mb-8 md:mb-10 leading-8 max-w-3xl mx-auto">
-            Watch recent messages, worship services, and spiritual teachings.
-          </p>
+  <div className="max-w-7xl mx-auto">
 
-          {/* YOUTUBE SECTION */}
-          <div className="rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/20">
-            <iframe
-              className="w-full h-[240px] sm:h-[350px] md:h-[500px]"
-              src="https://www.youtube.com/embed/videoseries?list=PLmztcIrVLM-AjWP0S2R58mC0O5VtpqUvy"
-              title="YouTube Sermons Playlist"
-              allowFullScreen
-            ></iframe>
-          </div>
+    {/* TITLE */}
+    <div className="text-center mb-14">
+
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-5">
+        Latest Sermons
+      </h2>
+
+      <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-8 max-w-3xl mx-auto">
+        Watch recent messages, worship services, and spiritual teachings.
+      </p>
+
+    </div>
+
+    {/* TWO SERMONS SIDE BY SIDE */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+      {/* CHANNEL 1 */}
+      <div className="bg-black/40 rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/20">
+
+        <div className="p-5 border-b border-yellow-400/10">
+          <h3 className="text-2xl font-bold text-yellow-400">
+            David Raju Lanka
+          </h3>
+
+        
         </div>
-      </section>
+
+        <iframe
+          className="w-full h-[240px] sm:h-[350px] md:h-[450px]"
+          src="https://www.youtube.com/embed/videoseries?list=PLmztcIrVLM-AjWP0S2R58mC0O5VtpqUvy"
+          title="David Raju Lanka Sermons"
+          allowFullScreen
+        ></iframe>
+
+      </div>
+
+      {/* CHANNEL 2 */}
+      <div className="bg-black/40 rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/20">
+
+        <div className="p-5 border-b border-yellow-400/10">
+          <h3 className="text-2xl font-bold text-yellow-400">
+            Bethel Prayer House LVG
+          </h3>
+
+        </div>
+
+        <iframe
+          className="w-full h-[240px] sm:h-[350px] md:h-[450px]"
+          src="https://www.youtube.com/embed/videoseries?list=PLuGSZckuNkuHkpKKRryGA1_j2Z8KhSs0R"
+          title="Bethel Prayer House LVG Sermons"
+          allowFullScreen
+        ></iframe>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
       {/* PRAYER REQUEST */}
       <section id="prayer-request" className="py-24 px-6 bg-black">
         <div className="max-w-4xl mx-auto">
@@ -658,13 +744,7 @@ ${formData.prayer}`;
             </div>
 
             {/* BUTTON */}
-            <button
-              type="submit"
-              className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 rounded-2xl text-xl transition duration-500"
-            >
-              Submit Prayer Request 🙏(via Gmail)
-            </button>
-            <button
+             <button
               type="button"
               onClick={handleWhatsApp}
               className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl transition duration-500 flex items-center justify-center gap-3"
@@ -672,6 +752,13 @@ ${formData.prayer}`;
               <FaWhatsapp className="text-2xl" />
               Send via WhatsApp
             </button>
+            <button
+              type="submit"
+              className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 rounded-2xl text-xl transition duration-500"
+            >
+              Submit Prayer Request 🙏(via Gmail)
+            </button>
+           
           </form>
         </div>
       </section>
@@ -700,20 +787,14 @@ ${formData.prayer}`;
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <a
+        
+           <a
             href="#prayer-request"
             className="fixed bottom-28 right-6 bg-yellow-400 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-black text-3xl hover:scale-110 hover:bg-yellow-500 transition duration-500 z-50"
           >
             <FaPrayingHands />
           </a>
-          <a
-            href="https://wa.me/919440389247"
-            target="_blank"
-            rel="noreferrer"
-            className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl text-white text-3xl hover:scale-110 transition"
-          >
-            <FaWhatsapp />
-          </a>
+         
         </div>
       </section>
       {/* FOOTER */}
@@ -756,47 +837,62 @@ ${formData.prayer}`;
             </div>
 
             {/* SOCIAL ICONS */}
-            <div className="flex gap-5 mt-6">
-              {/* YOUTUBE */}
-              <a
-                href="https://www.youtube.com/@DavidRajuLanka"
-                target="_blank"
-                rel="noreferrer"
-                className="text-red-500 text-3xl hover:scale-110 transition"
-              >
-                <FaYoutube />
-              </a>
+            {/* SOCIAL LINKS */}
+<div className="flex flex-col gap-5 mt-6">
 
-              {/* WHATSAPP */}
-              <a
-                href="https://wa.me/919440389247"
-                target="_blank"
-                rel="noreferrer"
-                className="text-green-500 text-3xl hover:scale-110 transition"
-              >
-                <FaWhatsapp />
-              </a>
+  {/* YOUTUBE CHANNEL 1 */}
+  <a
+    href="https://www.youtube.com/@DavidRajuLanka"
+    target="_blank"
+    rel="noreferrer"
+    className="flex items-center gap-3 text-red-500 hover:text-red-400 transition text-lg"
+  >
+    <FaYoutube className="text-3xl" />
+    <span className="text-gray-300">
+      David Raju Lanka
+    </span>
+  </a>
 
-              {/* FACEBOOK */}
-              <a
-                href="#"
-                target="_blank"
-                rel="noreferrer"
-                className="text-blue-500 text-3xl hover:scale-110 transition"
-              >
-                <FaFacebookF />
-              </a>
+  {/* YOUTUBE CHANNEL 2 */}
+  <a
+    href="https://www.youtube.com/@BethelPrayerHouseLVG"
+    target="_blank"
+    rel="noreferrer"
+    className="flex items-center gap-3 text-red-500 hover:text-red-400 transition text-lg"
+  >
+    <FaYoutube className="text-3xl" />
+    <span className="text-gray-300">
+      Bethel Prayer House LVG
+    </span>
+  </a>
 
-              {/* INSTAGRAM */}
-              <a
-                href="https://www.instagram.com/bethel_parvathipuram?igsh=MXh4aGo0d3JveG4xaA=="
-                target="_blank"
-                rel="noreferrer"
-                className="text-pink-500 text-3xl hover:scale-110 transition"
-              >
-                <FaInstagram />
-              </a>
-            </div>
+  {/* WHATSAPP */}
+  <a
+    href="https://wa.me/919440389247"
+    target="_blank"
+    rel="noreferrer"
+    className="flex items-center gap-3 text-green-500 hover:text-green-400 transition text-lg"
+  >
+    <FaWhatsapp className="text-3xl" />
+    <span className="text-gray-300">
+      WhatsApp
+    </span>
+  </a>
+
+  {/* INSTAGRAM */}
+  <a
+    href="https://www.instagram.com/bethel_parvathipuram?igsh=MXh4aGo0d3JveG4xaA=="
+    target="_blank"
+    rel="noreferrer"
+    className="flex items-center gap-3 text-pink-500 hover:text-pink-400 transition text-lg"
+  >
+    <FaInstagram className="text-3xl" />
+    <span className="text-gray-300">
+      Instagram
+    </span>
+  </a>
+
+</div>
           </div>
 
           {/* SERVICE HOURS */}

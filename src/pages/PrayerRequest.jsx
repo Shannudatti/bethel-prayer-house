@@ -141,12 +141,6 @@ ${formData.prayer}`;
 
             {/* BUTTON */}
             <button
-              type="submit"
-              className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 rounded-2xl text-xl transition duration-500"
-            >
-              Submit Prayer Request 🙏 (via Gmail)
-            </button>
-            <button
               type="button"
               onClick={handleWhatsApp}
               className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl transition duration-500 flex items-center justify-center gap-3"
@@ -154,6 +148,13 @@ ${formData.prayer}`;
               <FaWhatsapp className="text-2xl" />
               Send via WhatsApp
             </button>
+            <button
+              type="submit"
+              className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 rounded-2xl text-xl transition duration-500"
+            >
+              Submit Prayer Request 🙏 (via Gmail)
+            </button>
+            
           </form>
         </div>
       </div>
