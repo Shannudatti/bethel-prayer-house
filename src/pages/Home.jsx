@@ -16,11 +16,7 @@ import event5 from "../assets/images/event5.jpeg";
 import event6 from "../assets/images/event6.jpeg";
 import { FaPrayingHands } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
-import {
-  FaYoutube,
-  FaWhatsapp,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaYoutube, FaWhatsapp, FaInstagram } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
@@ -476,52 +472,48 @@ ${formData.prayer}`;
         </div>
       </section>
       {/* SERMONS */}
-      
-<section
-  id="sermons"
-  className="py-20 md:py-24 px-4 sm:px-6 bg-black overflow-hidden"
->
 
-  <div className="max-w-7xl mx-auto">
+      <section
+        id="sermons"
+        className="py-20 md:py-24 px-4 sm:px-6 bg-black overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* TITLE */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-yellow-400 mb-14">
+            Sermons and songs
+          </h2>
 
-    {/* TITLE */}
-    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-yellow-400 mb-14">
-      Sermons and songs 
-    </h2>
+          {/* SLIDER */}
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            navigation
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            spaceBetween={30}
+            slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            className="sermonSwiper"
+          >
+            {/* VIDEO 1 */}
+            <SwiperSlide>
+              <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10">
+                <iframe
+                  className="w-full h-[250px]"
+                  src="https://www.youtube.com/embed/v-bftf7tyzg"
+                  title="Sermon 1"
+                  allowFullScreen
+                ></iframe>
 
-    {/* SLIDER */}
-    <Swiper
-      modules={[Navigation, Autoplay]}
-      navigation
-      autoplay={{
-        delay: 4000,
-        disableOnInteraction: false,
-      }}
-      spaceBetween={30}
-      slidesPerView={1}
-      breakpoints={{
-        768: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      }}
-      className="sermonSwiper"
-    >
-
-      {/* VIDEO 1 */}
-      <SwiperSlide>
-        <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10">
-
-          <iframe
-            className="w-full h-[250px]"
-            src="https://www.youtube.com/embed/v-bftf7tyzg"
-            title="Sermon 1"
-            allowFullScreen
-          ></iframe>
-
-          {/* <div className="p-5">
+                {/* <div className="p-5">
             <h3 className="text-2xl font-bold text-yellow-400 mb-3">
               Sunday Worship
             </h3>
@@ -530,22 +522,20 @@ ${formData.prayer}`;
               Experience powerful worship and God’s Word.
             </p>
           </div> */}
+              </div>
+            </SwiperSlide>
 
-        </div>
-      </SwiperSlide>
+            {/* VIDEO 2 */}
+            <SwiperSlide>
+              <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10">
+                <iframe
+                  className="w-full h-[250px]"
+                  src="https://www.youtube.com/embed/wWajzOkBbik"
+                  title="Sermon 2"
+                  allowFullScreen
+                ></iframe>
 
-      {/* VIDEO 2 */}
-      <SwiperSlide>
-        <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10">
-
-          <iframe
-            className="w-full h-[250px]"
-            src="https://www.youtube.com/embed/wWajzOkBbik"
-            title="Sermon 2"
-            allowFullScreen
-          ></iframe>
-
-          {/* <div className="p-5">
+                {/* <div className="p-5">
             <h3 className="text-2xl font-bold text-yellow-400 mb-3">
               Prayer & Faith
             </h3>
@@ -554,22 +544,20 @@ ${formData.prayer}`;
               Grow spiritually through prayer and faith.
             </p>
           </div> */}
+              </div>
+            </SwiperSlide>
 
-        </div>
-      </SwiperSlide>
+            {/* VIDEO 3 */}
+            <SwiperSlide>
+              <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10">
+                <iframe
+                  className="w-full h-[250px]"
+                  src="https://www.youtube.com/embed/5MMBZlcGM3s"
+                  title="Sermon 3"
+                  allowFullScreen
+                ></iframe>
 
-      {/* VIDEO 3 */}
-      <SwiperSlide>
-        <div className="bg-[#111827] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/10">
-
-          <iframe
-            className="w-full h-[250px]"
-            src="https://www.youtube.com/embed/5MMBZlcGM3s"
-            title="Sermon 3"
-            allowFullScreen
-          ></iframe>
-
-          {/* <div className="p-5">
+                {/* <div className="p-5">
             <h3 className="text-2xl font-bold text-yellow-400 mb-3">
               Hope In Christ
             </h3>
@@ -578,16 +566,11 @@ ${formData.prayer}`;
               Discover God’s promises and purpose for life.
             </p>
           </div> */}
-
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
-        
-      </SwiperSlide>
-
-    </Swiper>
-
-  </div>
-
-</section>
+      </section>
       {/* LIVE STREAM */}
       <section className="py-20 md:py-24 px-4 sm:px-6 bg-black overflow-hidden">
         <div className="max-w-6xl mx-auto text-center">
@@ -612,71 +595,56 @@ ${formData.prayer}`;
           </div>
         </div>
       </section>
-    {/* LATEST SERMONS */}
-<section className="py-20 md:py-24 px-4 sm:px-6 bg-[#0f172a] overflow-hidden">
+      {/* LATEST SERMONS */}
+      <section className="py-20 md:py-24 px-4 sm:px-6 bg-[#0f172a] overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          {/* TITLE */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-5">
+              Latest Sermons
+            </h2>
 
-  <div className="max-w-7xl mx-auto">
+            <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-8 max-w-3xl mx-auto">
+              Watch recent messages, worship services, and spiritual teachings.
+            </p>
+          </div>
 
-    {/* TITLE */}
-    <div className="text-center mb-14">
+          {/* TWO SERMONS SIDE BY SIDE */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {/* CHANNEL 1 */}
+            <div className="bg-black/40 rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/20">
+              <div className="p-5 border-b border-yellow-400/10">
+                <h3 className="text-2xl font-bold text-yellow-400">
+                  David Raju Lanka
+                </h3>
+              </div>
 
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-5">
-        Latest Sermons
-      </h2>
+              <iframe
+                className="w-full h-[240px] sm:h-[350px] md:h-[450px]"
+                src="https://www.youtube.com/embed/videoseries?list=PLmztcIrVLM-AjWP0S2R58mC0O5VtpqUvy"
+                title="David Raju Lanka Sermons"
+                allowFullScreen
+              ></iframe>
+            </div>
 
-      <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-8 max-w-3xl mx-auto">
-        Watch recent messages, worship services, and spiritual teachings.
-      </p>
+            {/* CHANNEL 2 */}
+            <div className="bg-black/40 rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/20">
+              <div className="p-5 border-b border-yellow-400/10">
+                <h3 className="text-2xl font-bold text-yellow-400">
+                  Bethel Prayer House LVG
+                </h3>
+              </div>
 
-    </div>
-
-    {/* TWO SERMONS SIDE BY SIDE */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
-      {/* CHANNEL 1 */}
-      <div className="bg-black/40 rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/20">
-
-        <div className="p-5 border-b border-yellow-400/10">
-          <h3 className="text-2xl font-bold text-yellow-400">
-            David Raju Lanka
-          </h3>
-
-        
+              <iframe
+                className="w-full h-[240px] sm:h-[350px] md:h-[450px]"
+                src="https://www.youtube.com/embed/videoseries?list=PLuGSZckuNkuHkpKKRryGA1_j2Z8KhSs0R"
+                title="Bethel Prayer House LVG Sermons"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
         </div>
-
-        <iframe
-          className="w-full h-[240px] sm:h-[350px] md:h-[450px]"
-          src="https://www.youtube.com/embed/videoseries?list=PLmztcIrVLM-AjWP0S2R58mC0O5VtpqUvy"
-          title="David Raju Lanka Sermons"
-          allowFullScreen
-        ></iframe>
-
-      </div>
-
-      {/* CHANNEL 2 */}
-      <div className="bg-black/40 rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/20">
-
-        <div className="p-5 border-b border-yellow-400/10">
-          <h3 className="text-2xl font-bold text-yellow-400">
-            Bethel Prayer House LVG
-          </h3>
-
-        </div>
-
-        <iframe
-          className="w-full h-[240px] sm:h-[350px] md:h-[450px]"
-          src="https://www.youtube.com/embed/videoseries?list=PLuGSZckuNkuHkpKKRryGA1_j2Z8KhSs0R"
-          title="Bethel Prayer House LVG Sermons"
-          allowFullScreen
-        ></iframe>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+      </section>
       {/* PRAYER REQUEST */}
       <section id="prayer-request" className="py-24 px-6 bg-black">
         <div className="max-w-4xl mx-auto">
@@ -744,7 +712,7 @@ ${formData.prayer}`;
             </div>
 
             {/* BUTTON */}
-             <button
+            <button
               type="button"
               onClick={handleWhatsApp}
               className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl transition duration-500 flex items-center justify-center gap-3"
@@ -758,7 +726,6 @@ ${formData.prayer}`;
             >
               Submit Prayer Request 🙏(via Gmail)
             </button>
-           
           </form>
         </div>
       </section>
@@ -787,14 +754,22 @@ ${formData.prayer}`;
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-        
-           <a
+          <a
+            href="https://wa.me/919440389247"
+            target="_blank"
+            rel="noreferrer"
+            className="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white text-3xl hover:scale-110 hover:bg-green-600 transition duration-500 z-50"
+          >
+            <FaWhatsapp />
+          </a>
+
+          <a
             href="#prayer-request"
             className="fixed bottom-28 right-6 bg-yellow-400 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-black text-3xl hover:scale-110 hover:bg-yellow-500 transition duration-500 z-50"
           >
             <FaPrayingHands />
           </a>
-         
+          
         </div>
       </section>
       {/* FOOTER */}
@@ -838,61 +813,51 @@ ${formData.prayer}`;
 
             {/* SOCIAL ICONS */}
             {/* SOCIAL LINKS */}
-<div className="flex flex-col gap-5 mt-6">
+            <div className="flex flex-col gap-5 mt-6">
+              {/* YOUTUBE CHANNEL 1 */}
+              <a
+                href="https://www.youtube.com/@DavidRajuLanka"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-red-500 hover:text-red-400 transition text-lg"
+              >
+                <FaYoutube className="text-3xl" />
+                <span className="text-gray-300">David Raju Lanka</span>
+              </a>
 
-  {/* YOUTUBE CHANNEL 1 */}
-  <a
-    href="https://www.youtube.com/@DavidRajuLanka"
-    target="_blank"
-    rel="noreferrer"
-    className="flex items-center gap-3 text-red-500 hover:text-red-400 transition text-lg"
-  >
-    <FaYoutube className="text-3xl" />
-    <span className="text-gray-300">
-      David Raju Lanka
-    </span>
-  </a>
+              {/* YOUTUBE CHANNEL 2 */}
+              <a
+                href="https://www.youtube.com/@BethelPrayerHouseLVG"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-red-500 hover:text-red-400 transition text-lg"
+              >
+                <FaYoutube className="text-3xl" />
+                <span className="text-gray-300">Bethel Prayer House LVG</span>
+              </a>
 
-  {/* YOUTUBE CHANNEL 2 */}
-  <a
-    href="https://www.youtube.com/@BethelPrayerHouseLVG"
-    target="_blank"
-    rel="noreferrer"
-    className="flex items-center gap-3 text-red-500 hover:text-red-400 transition text-lg"
-  >
-    <FaYoutube className="text-3xl" />
-    <span className="text-gray-300">
-      Bethel Prayer House LVG
-    </span>
-  </a>
+              {/* WHATSAPP */}
+              <a
+                href="https://wa.me/919440389247"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-green-500 hover:text-green-400 transition text-lg"
+              >
+                <FaWhatsapp className="text-3xl" />
+                <span className="text-gray-300">WhatsApp</span>
+              </a>
 
-  {/* WHATSAPP */}
-  <a
-    href="https://wa.me/919440389247"
-    target="_blank"
-    rel="noreferrer"
-    className="flex items-center gap-3 text-green-500 hover:text-green-400 transition text-lg"
-  >
-    <FaWhatsapp className="text-3xl" />
-    <span className="text-gray-300">
-      WhatsApp
-    </span>
-  </a>
-
-  {/* INSTAGRAM */}
-  <a
-    href="https://www.instagram.com/bethel_parvathipuram?igsh=MXh4aGo0d3JveG4xaA=="
-    target="_blank"
-    rel="noreferrer"
-    className="flex items-center gap-3 text-pink-500 hover:text-pink-400 transition text-lg"
-  >
-    <FaInstagram className="text-3xl" />
-    <span className="text-gray-300">
-      Instagram
-    </span>
-  </a>
-
-</div>
+              {/* INSTAGRAM */}
+              <a
+                href="https://www.instagram.com/bethel_parvathipuram?igsh=MXh4aGo0d3JveG4xaA=="
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-pink-500 hover:text-pink-400 transition text-lg"
+              >
+                <FaInstagram className="text-3xl" />
+                <span className="text-gray-300">Instagram</span>
+              </a>
+            </div>
           </div>
 
           {/* SERVICE HOURS */}
