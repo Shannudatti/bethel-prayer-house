@@ -259,7 +259,7 @@ ${formData.prayer}`;
 
               <div className="p-7 flex flex-col flex-1">
                 <h3 className="text-yellow-400 text-3xl font-bold leading-tight mb-5 min-h-[110px]">
-                  Bro. L.V. David Raju Garu
+                  Bro. David Raju Lanka Garu
                 </h3>
 
                 <p className="text-gray-300 leading-8 text-lg">
