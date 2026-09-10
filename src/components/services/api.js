@@ -1,4 +1,4 @@
-export const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = "https://bethel-prayer-house.onrender.com";
 
 // ==================================================
 // CREATE PRAYER REQUEST
@@ -31,10 +31,10 @@ export async function createPrayerRequest(formData) {
 
 // ==================================================
 // GET PRAYER REQUESTS
-// Admin only
+// Authenticated team members
 // ==================================================
 
-export async function getPrayerRequests() { 
+export async function getPrayerRequests() {
   const token = localStorage.getItem("access_token");
 
   if (!token) {
@@ -52,7 +52,7 @@ export async function getPrayerRequests() {
   );
 
   const data = await response.json();
- 
+
   if (!response.ok) {
     throw new Error(
       data.detail || "Unable to fetch prayer requests"

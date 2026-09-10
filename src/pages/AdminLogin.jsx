@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from "../components/services/api";
+
 function AdminLogin() {
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ function AdminLogin() {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/admin/login`,
+        "https://bethel-prayer-house.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: {
@@ -53,7 +53,7 @@ function AdminLogin() {
         data.access_token
       );
 
-      // Store admin information
+      // Store admin/team information
       localStorage.setItem(
         "admin_user",
         JSON.stringify(data.data)
@@ -66,7 +66,8 @@ function AdminLogin() {
       console.error("Login error:", error);
 
       setError(
-        error.message || "Something went wrong. Please try again."
+        error.message ||
+        "Something went wrong. Please try again."
       );
     } finally {
       setLoading(false);
@@ -95,7 +96,6 @@ function AdminLogin() {
 
         </div>
 
-
         {/* LOGIN CARD */}
         <form
           onSubmit={handleSubmit}
@@ -108,7 +108,6 @@ function AdminLogin() {
               {error}
             </div>
           )}
-
 
           {/* EMAIL */}
           <div className="mb-5">
@@ -133,7 +132,6 @@ function AdminLogin() {
 
           </div>
 
-
           {/* PASSWORD */}
           <div className="mb-7">
 
@@ -156,7 +154,6 @@ function AdminLogin() {
             />
 
           </div>
-
 
           {/* LOGIN BUTTON */}
           <button
