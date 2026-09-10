@@ -52,6 +52,7 @@ function AdminDashboard() {
 
   // ==================================================
   // MARK AS PRAYED
+  // Admin + Prayer Team
   // ==================================================
 
   const handleMarkAsPrayed = async (prayerId) => {
@@ -81,10 +82,62 @@ function AdminDashboard() {
         );
       }
 
-      // Refresh prayer requests
       await fetchPrayerRequests();
     } catch (error) {
       console.error("Mark as prayed error:", error);
+
+      alert(error.message);
+    }
+  };
+
+  // ==================================================
+  // DELETE PRAYER REQUEST
+  // Admin ONLY
+  // ==================================================
+
+  const handleDeletePrayer = async (prayerId) => {
+    const token = localStorage.getItem("access_token");
+
+    if (!token) {
+      navigate("/admin/login");
+      return;
+    }
+
+    if (adminUser?.role !== "admin") {
+      alert("You do not have permission to delete prayer requests.");
+      return;
+    }
+
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this prayer request?"
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/api/prayer-requests/${prayerId}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data.detail || "Unable to delete prayer request"
+        );
+      }
+
+      await fetchPrayerRequests();
+    } catch (error) {
+      console.error("Delete prayer error:", error);
 
       alert(error.message);
     }
@@ -117,7 +170,7 @@ function AdminDashboard() {
   }, []);
 
   // ==================================================
-  // LOADING
+  // LOADING STATE
   // ==================================================
 
   if (loading) {
@@ -131,13 +184,14 @@ function AdminDashboard() {
   }
 
   // ==================================================
-  // ERROR
+  // ERROR STATE
   // ==================================================
 
   if (error) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center p-6">
         <div className="text-center">
+
           <p className="text-red-400 text-xl mb-4">
             {error}
           </p>
@@ -148,6 +202,7 @@ function AdminDashboard() {
           >
             Try Again
           </button>
+
         </div>
       </div>
     );
@@ -159,15 +214,21 @@ function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-black text-white p-8">
+
       <div className="max-w-6xl mx-auto">
 
-        {/* HEADER */}
+        {/* ==========================================
+            HEADER
+        ========================================== */}
+
         <div className="mb-8">
 
           {/* TOP HEADER */}
+
           <div className="flex items-center justify-between mb-6">
 
             <div>
+
               <p className="text-lg font-semibold">
                 Welcome, {adminUser?.name} 👋
               </p>
@@ -175,6 +236,7 @@ function AdminDashboard() {
               <p className="text-sm text-gray-400 capitalize">
                 {adminUser?.role} Team
               </p>
+
             </div>
 
             <button
@@ -186,10 +248,13 @@ function AdminDashboard() {
 
           </div>
 
+
           {/* TITLE + TOTAL */}
+
           <div className="flex items-center justify-between mb-6">
 
             <div>
+
               <h1 className="text-4xl font-bold text-yellow-400">
                 Prayer Requests
               </h1>
@@ -197,9 +262,11 @@ function AdminDashboard() {
               <p className="text-gray-400 mt-2">
                 Manage prayer requests from the church website.
               </p>
+
             </div>
 
             <div className="bg-[#111827] border border-gray-800 rounded-xl px-5 py-3">
+
               <span className="text-gray-400">
                 Total
               </span>
@@ -207,14 +274,18 @@ function AdminDashboard() {
               <span className="text-yellow-400 font-bold text-xl ml-2">
                 {prayerRequests.length}
               </span>
+
             </div>
 
           </div>
 
+
           {/* FILTERS */}
+
           <div className="flex flex-wrap gap-3">
 
             {/* ALL */}
+
             <button
               onClick={() => setFilter("all")}
               className={`px-5 py-2 rounded-xl font-semibold transition ${
@@ -226,7 +297,9 @@ function AdminDashboard() {
               All ({prayerRequests.length})
             </button>
 
+
             {/* NEW */}
+
             <button
               onClick={() => setFilter("new")}
               className={`px-5 py-2 rounded-xl font-semibold transition ${
@@ -244,7 +317,9 @@ function AdminDashboard() {
               )
             </button>
 
+
             {/* PRAYED */}
+
             <button
               onClick={() => setFilter("prayed")}
               className={`px-5 py-2 rounded-xl font-semibold transition ${
@@ -266,16 +341,27 @@ function AdminDashboard() {
 
         </div>
 
-        {/* NO REQUESTS */}
+
+        {/* ==========================================
+            NO REQUESTS
+        ========================================== */}
+
         {filteredPrayerRequests.length === 0 ? (
+
           <div className="bg-[#111827] border border-gray-800 rounded-2xl p-10 text-center">
+
             <p className="text-gray-400 text-lg">
               No prayer requests found.
             </p>
+
           </div>
+
         ) : (
 
-          /* REQUEST LIST */
+          /* ========================================
+             REQUEST LIST
+          ======================================== */
+
           <div className="space-y-5">
 
             {filteredPrayerRequests.map((prayer) => (
@@ -286,6 +372,7 @@ function AdminDashboard() {
               >
 
                 {/* NAME + STATUS */}
+
                 <div className="flex items-center justify-between">
 
                   <h2 className="text-xl font-bold">
@@ -306,51 +393,89 @@ function AdminDashboard() {
 
                 </div>
 
+
                 {/* PHONE */}
+
                 <p className="text-gray-400 mt-3">
                   📞 {prayer.phone}
                 </p>
 
+
                 {/* PRAYER */}
+
                 <div className="mt-5">
+
                   <p className="text-gray-300 leading-7">
                     {prayer.prayer}
                   </p>
+
                 </div>
 
+
                 {/* DATE */}
+
                 {prayer.created_at && (
+
                   <p className="text-gray-500 text-sm mt-5">
                     Submitted:{" "}
                     {new Date(
                       prayer.created_at
                     ).toLocaleString()}
                   </p>
+
                 )}
 
-                {/* MARK AS PRAYED */}
-                {prayer.status === "new" &&
-                  ["admin", "prayer"].includes(
-                    adminUser?.role
-                  ) && (
+
+                {/* ACTION BUTTONS */}
+
+                <div className="flex flex-wrap gap-3 mt-5">
+
+                  {/* MARK AS PRAYED */}
+
+                  {prayer.status === "new" &&
+                    ["admin", "prayer"].includes(
+                      adminUser?.role
+                    ) && (
+
+                      <button
+                        onClick={() =>
+                          handleMarkAsPrayed(prayer.id)
+                        }
+                        className="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold transition"
+                      >
+                        🙏 Mark as Prayed
+                      </button>
+
+                    )}
+
+
+                  {/* DELETE */}
+
+                  {adminUser?.role === "admin" && (
+
                     <button
                       onClick={() =>
-                        handleMarkAsPrayed(prayer.id)
+                        handleDeletePrayer(prayer.id)
                       }
-                      className="mt-5 bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold transition"
+                      className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold transition"
                     >
-                      🙏 Mark as Prayed
+                      🗑️ Delete
                     </button>
+
                   )}
+
+                </div>
 
               </div>
 
             ))}
 
           </div>
+
         )}
 
       </div>
+
     </div>
   );
 }
