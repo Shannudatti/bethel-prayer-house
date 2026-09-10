@@ -1,9 +1,9 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from pwdlib import PasswordHash
 
-from auth_utils import create_access_token
+from auth_utils import create_access_token, require_admin
 from database import SessionLocal
 from models import User
 
@@ -38,7 +38,10 @@ class LoginRequest(BaseModel):
 # ==================================================
 
 @router.post("/register")
-def register_user(request: RegisterRequest):
+def register_user(
+    request: RegisterRequest,
+    current_user: dict = Depends(require_admin)
+):
     db: Session = SessionLocal()
 
     try:
@@ -55,6 +58,12 @@ def register_user(request: RegisterRequest):
             .filter(User.email == request.email)
             .first()
         )
+
+        if existing_user:
+            raise HTTPException(
+                status_code=400,
+                detail="A user with this email already exists."
+            )
 
         # Hash password
         hashed_password = password_hash.hash(
@@ -74,7 +83,7 @@ def register_user(request: RegisterRequest):
         db.refresh(new_user)
 
         return {
-            "message": "Admin account created successfully! 🎉",
+            "message": "Team account created successfully! 🎉",
             "data": {
                 "id": new_user.id,
                 "name": new_user.name,
